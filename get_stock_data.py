@@ -43,8 +43,10 @@ def recent_concavity(df):
     return coef_fit[0]
     
 
-investments = ['MRO', 'TSLA', 'AAPL', 'AMD', 'NVDA',
-               'SPY', 'AMZN', 'NFLX', 'VOO']
+investments = ['DAR', 'SNAP', 'VOO', 'TSLA', 'VTWO',
+               'WPX', 'DE', 'GOOG', 'GPRO', 'TGNA',
+               'PYPL', 'DRI', 'IDXX', 'GS', 'CAT',
+               'FB', 'BAC', 'PEP', 'PSEC', 'PAYX',]
 risk_df = pd.DataFrame(columns=['tick', 'coef_var', 'concave'])
 
 for i, tick in enumerate(investments):
@@ -57,6 +59,10 @@ for i, tick in enumerate(investments):
 risk_df.dropna(inplace=True)
 
 print(risk_df.sort_values('coef_var'))
+
+risk_df[['tick', 'coef_var']].plot.hist()
+
+
 
 
 
